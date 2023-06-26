@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+// eslint-disable-next-line
+
 import './App.css';
+import logo from './bridgelabz_logo.jpg'
+import {useState} from "react";
 
 function App() {
+    let company = "Bridgelabz";
+    const [name, setName] = useState("");
+
+
+    const handleClick = (event)=>{
+        console.log("Clicked")
+        window.open("https://www.bridgelabz.com")
+    }
+
+    const handleInputChange= (event)=> {
+        setName(event.target.value)
+    }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <img src={logo} alt="" onClick={handleClick}/>
+        <h1>Hello {name} ! Welcome to {company}</h1>
+        <input type="text" placeholder="Enter your Name" onChange={handleInputChange}/>
     </div>
   );
 }
